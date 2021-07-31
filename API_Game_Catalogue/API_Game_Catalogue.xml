@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>API_Game_Catalogue</name>
+    </assembly>
+    <members>
+        <member name="M:API_Game_Catalogue.Controllers.V1.GamesController.ListAllGames(System.Int32,System.Int32)">
+            <summary>
+            List all games with pagination.
+            </summary>
+            <remarks>
+            Its not possible to return a game without pagination parameter.
+            </remarks>
+            <param name="page">Indicates which page are being displayed. 1 page minimum.</param>
+            <param name="quantity">Quantity of items to be listed. 1 item minimum and 50 maximum.</param>
+            <response code="200">Returns a list of items.</response>
+            <response code="204">There is no game to be listed.</response>
+        </member>
+        <member name="M:API_Game_Catalogue.Controllers.V1.GamesController.ListGameById(System.Guid)">
+            <summary>
+            It will list a game by its Id code.
+            </summary>
+            <param name="id">Game's Id code</param>
+            <response code="200">Returns a game that matches with the Id entered by user.</response>
+            <response code="204">There is no game with such Id.</response>
+        </member>
+        <member name="M:API_Game_Catalogue.Controllers.V1.GamesController.AddGame(API_Game_Catalogue.InputModel.GameInputModel)">
+            <summary>
+            Adds a game to the catalogue.
+            </summary>
+            <param name="gameInputModel">Game's data to be entered.</param>
+            <response code="200">Indicates success when all info are correct.</response>
+            <response code="422">Indicates error when the game are already registered.</response>
+        </member>
+        <member name="M:API_Game_Catalogue.Controllers.V1.GamesController.UpdateGame(System.Guid,API_Game_Catalogue.InputModel.GameInputModel)">
+            <summary>
+            Update a game in the catalogue.
+            </summary>
+            <param name="id">Game Id to be updated.</param>
+            <param name="gameInputModel">The game info to be updated.</param>
+            <response code="200">Game info updated with success.</response>
+            <response code="404">There is no game with such Id.</response>
+        </member>
+        <member name="M:API_Game_Catalogue.Controllers.V1.GamesController.UpdateGamePrice(System.Guid,System.Double)">
+            <summary>
+            Update the price of game.
+            </summary>
+            <param name="id">Game Id to be updated.</param>
+            <param name="price">The new price of it game.</param>
+            <response code="200">Game's price updated with success.</response>
+            <response code="404">There is no game with such Id.</response>
+        </member>
+        <member name="M:API_Game_Catalogue.Controllers.V1.GamesController.DeleteGame(System.Guid)">
+            <summary>
+            Remove a game from its catalogue.
+            </summary>
+            <param name="id">Game Id to be removed.</param>
+            <response code="200">Game removed with success.</response>
+            <response code="404">There is no game with such Id.</response>
+        </member>
+    </members>
+</doc>
